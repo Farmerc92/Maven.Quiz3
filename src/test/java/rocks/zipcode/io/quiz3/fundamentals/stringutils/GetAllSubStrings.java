@@ -27,6 +27,7 @@ public class GetAllSubStrings {
                 "l",
                 "ll",
                 "llo",
+                "l",
                 "lo",
                 "o"};
 

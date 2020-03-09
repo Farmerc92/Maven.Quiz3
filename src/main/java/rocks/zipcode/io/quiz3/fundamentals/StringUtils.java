@@ -8,12 +8,10 @@ import java.util.List;
  */
 public class StringUtils {
     public static String capitalizeNthCharacter(String str, Integer indexToCapitalize) {
-        for (int i = 0; i < str.length(); i++) {
-            if (i == indexToCapitalize){
-                str.replace(str.charAt(i), Character.toUpperCase(str.charAt(i)));
-            }
-        }
-        return str;
+        Character c = Character.toUpperCase(str.charAt(indexToCapitalize));
+        StringBuilder build = new StringBuilder(str);
+        build.setCharAt(indexToCapitalize, c);
+        return build.toString();
     }
 
     public static Boolean isCharacterAtIndex(String baseString, Character characterToCheckFor, Integer indexOfString) {

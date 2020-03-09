@@ -12,7 +12,7 @@ public class GetNumberOfSubStrings {
     public void test1() {
         // given
         String input = "Hello";
-        Integer expected = 14;
+        Integer expected = 15;
 
         // when
         Integer actual = StringUtils.getNumberOfSubStrings(input);
