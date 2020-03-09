@@ -6,23 +6,31 @@ package rocks.zipcode.io.quiz3.fundamentals;
 public class PigLatinGenerator {
 
     public String translate(String str) {
-        if (startsWithVowel(str)){
-            return str + "way";
+        String[] array = str.split(" ");
+        String output = "";
+        for (int i = 0; i < array.length; i++) {
+            if (VowelUtils.startsWithVowel(array[i])){
+                if (i == array.length -1 )
+                    output += array[i] + "way";
+                else
+                    output += array[i] + "way ";
+            }
+            else if (!VowelUtils.hasVowels(array[i])){
+                if (i == array.length -1 )
+                    output += array[i] + "ay";
+                else
+                    output += array[i] + "ay ";
+            }
+            else {
+                String subA = array[i].substring(0, VowelUtils.getIndexOfFirstVowel(array[i]));
+                String subB = array[i].substring(VowelUtils.getIndexOfFirstVowel(array[i]), array[i].length());
+                if (i == array.length - 1)
+                    output += subB + subA + "ay";
+                else
+                    output += subB + subA + "ay ";
+            }
+
         }
-        else if (!startsWithVowel(str)){
-            String output = str.substring(1, str.length());
-            output += Character.toUpperCase(str.charAt(0));
-        }
-        return null;
-    }
-    public static Boolean startsWithVowel(String word) {
-        for (int i = 0; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            if ((ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch== 'o' || ch == 'O' || ch == 'u' || ch == 'U') && i == 0)
-                return true;
-            else
-                return false;
-        }
-        return false;
+        return output;
     }
 }
