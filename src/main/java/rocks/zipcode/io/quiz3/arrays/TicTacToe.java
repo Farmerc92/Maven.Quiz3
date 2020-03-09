@@ -48,7 +48,41 @@ public class TicTacToe {
     }
 
     public String getWinner() {
-        return "X";
+        if (rowWinner() != null)
+            return rowWinner();
+        else if (columnWinner() != null)
+            return columnWinner();
+        else
+            return diagonalWinner();
+    }
+
+    public String rowWinner(){
+        for (int i = 0; i < 2; i++) {
+            String[] row = getRow(i);
+            String lastSeen = row[i];
+            if (row[0].equals(row[1]) && row[1].equals(row[2]))
+                return lastSeen;
+        }
+        return null;
+    }
+
+    public String columnWinner(){
+        for (int i = 0; i < 2; i++) {
+            String[] col = getColumn(i);
+            String lastSeen = col[i];
+            if (col[0].equals(col[1]) && col[1].equals(col[2]))
+                return lastSeen;
+        }
+        return null;
+    }
+
+    public String diagonalWinner(){
+        if (getRow(0)[0].equals(getRow(1)[1]) && getRow(2)[2].equals(getRow(1)[1]))
+            return getRow(0)[0];
+        else if (getRow(0)[2].equals(getRow(1)[1]) && getRow(1)[1].equals(getRow(2)[0]))
+            return getRow(0)[2];
+        else
+            return null;
     }
 
     public String[][] getBoard() {
