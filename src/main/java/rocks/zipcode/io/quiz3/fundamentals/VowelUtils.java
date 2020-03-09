@@ -5,19 +5,37 @@ package rocks.zipcode.io.quiz3.fundamentals;
  */
 public class VowelUtils {
     public static Boolean hasVowels(String word) {
-        return null;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            if (ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch== 'o' || ch == 'O' || ch == 'u' || ch == 'U')
+                return true;
+        }
+        return false;
     }
 
     public static Integer getIndexOfFirstVowel(String word) {
-        return null;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            if (ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch== 'o' || ch == 'O' || ch == 'u' || ch == 'U')
+                return i;
+        }
+        return -1;
     }
 
 
     public static Boolean startsWithVowel(String word) {
-        return null;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            if ((ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch== 'o' || ch == 'O' || ch == 'u' || ch == 'U') && i == 0)
+                return true;
+            else
+                return false;
+        }
+        return false;
     }
 
     public static Boolean isVowel(Character character) {
-        return null;
+        Character ch = character;
+        return (ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch== 'o' || ch == 'O' || ch == 'u' || ch == 'U');
     }
 }
