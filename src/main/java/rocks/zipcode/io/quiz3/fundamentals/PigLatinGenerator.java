@@ -29,7 +29,6 @@ public class PigLatinGenerator {
                 else
                     output += subB + subA + "ay ";
             }
-
         }
         return output;
     }

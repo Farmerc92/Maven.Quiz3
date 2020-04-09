@@ -33,10 +33,7 @@ public class ArrayUtility<SomeType> {
     public SomeType findEvenOccurringValue() {
         Map<SomeType, Integer> map = new HashMap<>();
         for (SomeType obj : array) {
-            if (map.containsKey(obj))
-                map.put(obj, map.get(obj) + 1);
-            else
-                map.put(obj, 1);
+            map.put(obj, map.getOrDefault(obj, 0) + 1);
         }
         for (Map.Entry<SomeType, Integer> entry : map.entrySet()){
             if (entry.getValue() % 2 == 0)
